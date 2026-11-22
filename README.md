@@ -15,7 +15,11 @@ terminal dashboard.
 
 - CPU utilization monitoring
 - RAM usage monitoring
-- Disk space monitoring
+- Advanced disk storage monitoring
+  - Total disk capacity
+  - Used disk space
+  - Available disk space
+  - Disk usage percentage
 - Network traffic monitoring
 - System hostname and uptime information
 - Resource usage warning alerts
@@ -76,6 +80,21 @@ Run the monitoring script:
 ```
 
 Press CTRL+C to stop monitoring.
+
+## Storage Monitoring
+
+The tool provides detailed disk storage information
+for the root filesystem.
+
+It displays:
+
+- Total storage capacity
+- Used storage
+- Available storage
+- Disk utilization percentage
+
+Disk information is collected using the Linux
+df command and processed using AWK.
 
 ## Alert Thresholds
 

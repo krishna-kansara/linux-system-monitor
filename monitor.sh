@@ -61,6 +61,12 @@ do
             printf "%.2f", ($2-$7)*100/$2
     }')
 
+    DISK_TOTAL=$(df -hP / | awk 'NR==2 {print $2}')
+
+    DISK_USED=$(df -hP / | awk 'NR==2 {print $3}')
+
+    DISK_AVAILABLE=$(df -hP / | awk 'NR==2 {print $4}')
+
     DISK_USAGE=$(df -P / | awk 'NR==2 {
         gsub("%","",$5)
         print $5
@@ -96,8 +102,10 @@ do
     echo "--------------------------------------"
     echo "DISK MONITORING"
     echo "--------------------------------------"
+    echo "Total Storage: $DISK_TOTAL"
+    echo "Used Storage: $DISK_USED"
+    echo "Available Storage: $DISK_AVAILABLE"
     echo "Disk Usage: $DISK_USAGE%"
-    df -h /
 
     echo "--------------------------------------"
     echo "NETWORK MONITORING"
